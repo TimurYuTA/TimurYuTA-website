@@ -13,6 +13,10 @@ My personal multi-page site. The site contains the main page, pages of my projec
 * Telegram Bot.
 * This website - TimurYuTA.
 
+## Functionality
+
+* Dark / Light theme.
+
 ## Technologies used
 
 - HTML
