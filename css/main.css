@@ -1,14 +1,10 @@
 @import "./reset.css";
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:wght@400;500;700&display=swap");
 
-/* 
-font-family: "DM Sans", sans-serif;
-font-family: "Poppins", sans-serif;
-*/
-
 :root {
-  --blackest: #000;
-  --black: #171718;
+  /* Colors */
+  --black: #000;
+  --black-light: #171718;
   --black-border: #26292d;
   --dark-mode: #282828;
   --white: #fff;
@@ -16,18 +12,42 @@ font-family: "Poppins", sans-serif;
   --grey-light: #5d5d5d;
   --purple: #5c62ec;
 
-  --text-color: var(--black);
-  --dark-bg: var(--black);
-  --dark-border: var(--black-border);
+  /* Buttons */
+  /* dark-mode-btn */
+  --mode-btn-bg: var(--grey);
+  --mode-btn-select: var(--white);
+  /* btn */
+  --btn-bg: var(--purple);
+  --btn-text: var(--white);
+  /* btn-outline */
+  --btn-outline-bg: var(--white);
+  --btn-outline-text: var(--black);
+  --btn-outline-border: var(--black);
+  --btn-outline-hover: var(--purple);
+
+  /* Nav */
+  --nav-bg: var(--black-light);
+  --nav-border: var(--black-border);
+  --nav-text: var(--white);
+  --nav-select-line: var(--purple);
+
+  /* Header */
+  --header-bg: var(--black-light);
   --header-text: var(--white);
-  --accent: var(--purple);
+
+  /* Footer */
+  --footer-bg: var(--black-light);
+  --footer-text: var(--white);
+  --footer-text-second: var(--grey-light);
 
   /* Light mode */
   --page-bg: var(--white);
-  --text-color: var(--black);
+  --text-color: var(--black-light);
+  --accent: var(--purple);
+  --title-1: var(--accent);
 
   --project-card-bg: var(--white);
-  --project-card-text: var(--black);
+  --project-card-text: var(--black-light);
   --box-shadow: 0 5px 35px rgba(0, 0, 0, 0.25);
 }
 
@@ -36,7 +56,7 @@ font-family: "Poppins", sans-serif;
   --page-bg: var(--dark-mode);
   --text-color: var(--white);
 
-  --project-card-bg: var(--black);
+  --project-card-bg: var(--black-light);
   --project-card-text: var(--white);
   --box-shadow: 0 5px 35px rgba(0, 0, 0, 0.8);
 }
@@ -50,12 +70,11 @@ body {
   font-family: "DM Sans", sans-serif;
   letter-spacing: -0.5px;
 
-  /* Def Light mode */
   background-color: var(--page-bg);
   color: var(--text-color);
 }
 
-/* Base */
+/* General */
 
 .section {
   padding: 70px 0;
@@ -73,7 +92,7 @@ body {
   font-size: 60px;
   font-weight: 700;
   line-height: 1.3;
-  color: var(--accent);
+  color: var(--title-1);
   text-align: center;
 }
 
@@ -103,6 +122,8 @@ body {
 
 /* Buttons */
 
+/* btn (header button) */
+
 .btn {
   display: inline-block;
 
@@ -110,8 +131,8 @@ body {
   padding: 12px 28px;
 
   border-radius: 5px;
-  background-color: var(--accent);
-  color: var(--white);
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
   letter-spacing: 0.15px;
   font-size: 18px;
   font-weight: 500;
@@ -128,6 +149,8 @@ body {
   transform: translateY(1px);
 }
 
+/* btn with outline */
+
 .btn-outline {
   display: flex;
   column-gap: 10px;
@@ -136,22 +159,24 @@ body {
   height: 48px;
   padding: 12px 20px;
 
-  border: 1px solid var(--blackest);
+  border: 1px solid var(--btn-outline-border);
   border-radius: 5px;
-  background-color: var(--white);
-  color: var(--blackest);
+  background-color: var(--btn-outline-bg);
+  color: var(--btn-outline-text);
 
   transition: background-color 0.2s ease-in;
 }
 
 .btn-outline:hover {
-  background-color: var(--accent);
+  background-color: var(--btn-outline-hover);
 }
 
 .btn-outline:active {
   position: relative;
   transform: translateY(1px);
 }
+
+/* Dark mode btn (button mode swich) */
 
 .dark-mode-btn {
   order: 9;
@@ -165,7 +190,7 @@ body {
   padding: 5px;
 
   border-radius: 13px;
-  background-color: var(--grey);
+  background-color: var(--mode-btn-bg);
 }
 
 .dark-mode-btn::before {
@@ -179,7 +204,7 @@ body {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: var(--white);
+  background-color: var(--mode-btn-select);
 
   transition: transform 0.2s ease-in;
 }
@@ -197,9 +222,9 @@ body {
 
 .nav {
   padding: 20px 0;
-  border-bottom: 1px solid var(--dark-border);
-  background-color: var(--dark-bg);
-  color: var(--header-text);
+  border-bottom: 1px solid var(--nav-border);
+  background-color: var(--nav-bg);
+  color: var(--nav-text);
   letter-spacing: normal;
 }
 
@@ -215,10 +240,6 @@ body {
 .logo {
   margin-right: auto;
   width: 10%;
-
-  /* color: var(--header-text);
-  font-size: 24px;
-  font-family: "Poppins", sans-serif; */
 }
 
 .logo strong {
@@ -237,7 +258,7 @@ body {
 }
 
 .nav-list__link {
-  color: var(--header-text);
+  color: var(--nav-text);
   transition: opacity 0.2s ease-in;
 }
 
@@ -259,7 +280,7 @@ body {
   display: block;
   height: 2px;
   width: 100%;
-  background-color: var(--accent);
+  background-color: var(--nav-select-line);
 }
 
 /* Header */
@@ -272,7 +293,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  background-color: var(--dark-bg);
+  background-color: var(--header-bg);
   background-image: url("./../img/header-bg.png");
   background-repeat: no-repeat;
   background-size: auto;
@@ -418,8 +439,8 @@ body {
 .footer {
   margin-top: auto;
   padding: 40px 0 30px;
-  background-color: var(--dark-bg);
-  color: var(--header-text);
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
 }
 
 .footer_wrapper {
@@ -442,11 +463,11 @@ body {
 
 .copyright p + p {
   margin-top: 0.5em;
-  color: var(--grey-light);
+  color: var(--footer-text-second);
 }
 
 @media (max-width: 767px) {
-  /* Base */
+  /* General */
 
   .section {
     padding: 40px 0;
@@ -496,7 +517,7 @@ body {
     font-size: 40px;
   }
 
-  /* Project */
+  /* Projects */
 
   .project__title {
     font-size: 22px;
@@ -512,6 +533,7 @@ body {
     font-size: 18px;
   }
 
+  /* Skills and Contact */
   /* Content-list */
 
   .content-list {
@@ -542,7 +564,7 @@ body {
 }
 
 @media (max-width: 575px) {
-  /* Base */
+  /* General */
 
   .section {
     padding: 30px 0;
@@ -601,7 +623,7 @@ body {
     font-size: 16px;
   }
 
-  /* Project */
+  /* Projects */
 
   .project__title {
     font-size: 20px;
@@ -617,6 +639,7 @@ body {
     font-size: 16px;
   }
 
+  /* Skills and Contact */
   /* Content-list */
 
   .content-list {
