@@ -12,6 +12,7 @@ My personal multi-page site. The site contains the main page, pages of my projec
 * My first web page.
 * Telegram Bot.
 * This website - TimurYuTA.
+* «TimurYuTA» on React.
 
 ## Functionality
 
